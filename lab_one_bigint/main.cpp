@@ -8,7 +8,6 @@
 int main() {
 	setlocale(LC_ALL, "Rus");
 
-
 	std::cout << "Конструкторы:\n";
 
 	BigInt x;
@@ -19,6 +18,12 @@ int main() {
 	std::cout << "x = " << x << "\n";
 	x = BigInt("786275621793482731486231984782391649017827470237");
 	std::cout << "x = " << x << "\n";
+	x = BigInt("-198912");
+	std::cout << "x = " << x << "\n";
+	/*x = BigInt("-123a212");
+	std::cout << "x = " << x << "\n";
+	x = BigInt("123212/");
+	std::cout << "x = " << x << "\n";*/
 	x = BigInt("-314123");
 	std::cout << "x = " << x << "\n";
 	BigInt y(x);
@@ -78,6 +83,10 @@ int main() {
 	std::cout << "x - y = " << (x - y) << "\n";
 	std::cout << "x / y = " << (x / y) << "\n";
 	std::cout << "x % y = " << (x % y) << "\n";
+
+	/*y = BigInt(0);
+	std::cout << "x / y = " << (x / y) << "\n";
+	y = BigInt("326587236578726");*/
 
 	x = -x;
 	std::cout << "-x + y = " << (x + y) << "\n";

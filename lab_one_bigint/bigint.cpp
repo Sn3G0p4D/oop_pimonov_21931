@@ -21,6 +21,10 @@ BigInt::BigInt(std::string string) {
 	int i = !this->sign;
 	bool flag = 0;  // 0 - не было цифр, 1 - были
 	while (string[i] != '\0') {
+		if (string[i] < 48 || string[i] > 57) {
+			*this = BigInt(0);
+			throw std::invalid_argument("Wrong symbol");
+		}
 		if (!(string[i] == '0' && !flag)) {
 			if (!flag) {
 				flag = 1;
@@ -571,6 +575,10 @@ BigInt operator/(const BigInt& left, const BigInt& right) {
 	BigInt divider = BigInt(right);
 	if (!divider.sign) {
 		divider.sign = true;
+	}
+
+	if (!right.num.size()) {
+		throw std::invalid_argument("Divider is zero :/");
 	}
 
 	int k = left.num.size() - 1;
